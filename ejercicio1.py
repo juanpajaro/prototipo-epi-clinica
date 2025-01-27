@@ -2,9 +2,20 @@
 
 import pandas as pd
 
-def load_data(diccionario):
-    datos = pd.read_csv(diccionario)
+def load_data(ubicacion_datos):
+    datos = pd.read_csv(ubicacion_datos, sep = '\t')
     return datos
 
-datos = load_data('./data/diabetes.txt', sep = '\t')
-datos.head()
+#retornar la media del indice de masa corporal
+def calcular_imc(serie):
+    return serie.mean()
+
+"""
+datos = load_data('./data/diabetes.txt')
+datos.columns
+#datos.head()
+calcular_imc(datos["BMI"])
+datos_prueba = [1, 2, 3, 4, 5]
+calcular_imc(datos_prueba)
+print(sum(datos_prueba))
+"""
